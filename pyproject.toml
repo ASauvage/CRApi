@@ -1,0 +1,36 @@
+[build-system]
+requires = [ "setuptools>=42", "wheel" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crapi"
+description = ""
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = [ "QA" ]
+authors = [
+    { name = "ASauvage", email = "asauvagepotel@proton.me" }
+]
+maintainers = [
+    { name = "ASauvage", email = "a.sauvagepotel@proton.me" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Natural Language :: English",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only"
+]
+dynamic = [ "version", "dependencies" ]
+
+[project.urls]
+Source = "https://github.com/ASauvage/crapi"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["crapi*"]
+exclude = ["crapi.tests*"]
+
+[tool.setuptools.dynamic]
+version = { attr = "crapi.__version__" }
+dependencies = { file = "requirements.txt"}
