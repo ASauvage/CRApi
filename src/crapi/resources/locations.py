@@ -3,8 +3,7 @@ from ..models import Location
 
 
 class LocationsRessource:
-    """
-    Access global and local rankings
+    """Access global and local rankings
     """
     def __init__(self, client: HttpClient) -> None:
         self.client = client
