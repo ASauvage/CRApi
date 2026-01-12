@@ -29,4 +29,4 @@ jobs:
 
       - name: Execute tests
         run: |
-          python -m unittest discover tests/ -v -b
+          python -m unittest tests/ -v -b
