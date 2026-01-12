@@ -11,7 +11,7 @@ class HttpClient:
 
         if token:
             self.session.headers.update({
-                "Autorozation": f"Bearer {token}"
+                "Authorization": f"Bearer {token}"
             })
     
     def get(self, path: str, **kwargs) -> Any:
@@ -28,7 +28,7 @@ class HttpClient:
                     response.status_code,
                     reason=data["reason"],
                     message=data["message"] if "message" in data.keys() else None,
-                    detail=data["detail"] if "message" in data.keys() else None
+                    detail=data["detail"] if "detail" in data.keys() else None
                 )
 
             return data

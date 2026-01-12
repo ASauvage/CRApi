@@ -1,4 +1,5 @@
 from ..http.client import HttpClient
+from ..commons.utils import build_path
 from ..models import Location
 
 

@@ -14,5 +14,5 @@ class Player:
             tag=data["tag"],
             name=data["name"],
             trophies=data["trophies"],
-            exp_level=data["exp_level"]
+            exp_level=data["expLevel"]
         )

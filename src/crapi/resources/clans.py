@@ -1,4 +1,5 @@
 from ..http.client import HttpClient
+from ..commons.utils import build_path
 from ..models import Clan
 
 
@@ -12,7 +13,7 @@ class ClansResource:
         """Get information about a single clan by clan tag.
 
         :param tag: Tag of the clan.
-        :return: Clan
+        :return: Clan Object
         """
-        data = self.client.get(f"/clans/{tag}")
+        data = self.client.get(build_path("clans", tag))
         return Clan.from_api(data)

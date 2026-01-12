@@ -11,3 +11,4 @@ class CRApiClient:
         )
 
         self.clans = ClansResource(http)
+        self.players = PlayersRessource(http)
