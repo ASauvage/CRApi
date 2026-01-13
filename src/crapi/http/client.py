@@ -1,7 +1,7 @@
 from requests import JSONDecodeError, Session
 from typing import Any
 
-from .exception import ClientError
+from ..exceptions import ClientError
 
 
 class HttpClient:

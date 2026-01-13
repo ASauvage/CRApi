@@ -8,4 +8,3 @@ class ClientError(Exception):
         self.detail = detail
 
         super().__init__(f"{status_code}: {reason}")
-
