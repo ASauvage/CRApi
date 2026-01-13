@@ -1,6 +1,6 @@
 from ..http.client import HttpClient
 from ..commons.utils import build_path, params_format
-from ..models import Clan, ClanMember
+from ..models import Clan, ClanMember, ClanWarLog, ClanCurrentWar
 
 
 class ClansResource:
@@ -44,11 +44,30 @@ class ClansResource:
         data = self.client.get(build_path("clans", tag))
         return Clan.from_api(data)
 
-    def get_war_log(self, tag: str) -> None:
-        pass
+    def get_war_log(self, tag: str, limit: int | None = None, after: str | None = None, before: str | None = None) -> list[ClanWarLog]:
+        """Retrieve clan's clan war log.
 
-    def get_current_war(self, tag: str) -> None:
-        pass
+        :param tag: Tag of the clan.
+        :param limit: Limit the number of items returned in the response.
+        :param after: Return only items that occur after this marker.
+        :param before: Return only items that occur before this marker.
+        :return: List of ClanWarLog Object
+        """
+        data = self.client.get(build_path("clans", tag, "warlog"), params=params_format(
+            limit=limit,
+            after=after,
+            before=before
+        ))
+        return [ClanWarLog.from_api(warlog) for warlog in data]
+
+    def get_current_war(self, tag: str) -> ClanCurrentWar:
+        """Retrieve information about clan's current clan war.
+
+        :param tag: Tag of the clan.
+        :return: ClanCurrentWar Object
+        """
+        data = self.client.get(build_path("clans", tag, "currentwar"))
+        return ClanCurrentWar.from_api(data)
 
     def get_river_race_log(self, tag: str) -> None:
         pass
