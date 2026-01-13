@@ -1,5 +1,5 @@
 from .http.client import HttpClient
-from .resources import ClansResource, PlayersRessource
+from .resources import ClansResource, LocationsResource, PlayersResource
 
 
 class CRApiClient:
@@ -10,5 +10,9 @@ class CRApiClient:
             token=token
         )
 
+        # self.cards = CardsResource(http)
+        # self.challenges = ChalengesResource(http)
         self.clans = ClansResource(http)
-        self.players = PlayersRessource(http)
+        self.locations = LocationsResource(http)
+        self.players = PlayersResource(http)
+        # self.tournaments = TournamentsResource(http)

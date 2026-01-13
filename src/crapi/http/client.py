@@ -11,10 +11,16 @@ class HttpClient:
 
         if token:
             self.session.headers.update({
-                "Authorization": f"Bearer {token}"
+                "Authorization": f"Bearer {token}",
+                "content-type": "application/json"
             })
     
     def get(self, path: str, **kwargs) -> Any:
+        """Sends a GET request. Returns Response object.
+
+        :param path: URL path.
+        :param **kwargs: Optional arguments that `request` takes.
+        """
         response = self.session.get(
             url=self.base_url + path,
             **kwargs,

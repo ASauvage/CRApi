@@ -3,7 +3,7 @@ from ..commons.utils import build_path
 from ..models import Player
 
 
-class PlayersRessource:
+class PlayersResource:
     """Access player specific information.
     """
     def __init__(self, client: HttpClient) -> None:

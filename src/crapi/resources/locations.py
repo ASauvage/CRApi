@@ -3,7 +3,7 @@ from ..commons.utils import build_path
 from ..models import Location
 
 
-class LocationsRessource:
+class LocationsResource:
     """Access global and local rankings
     """
     def __init__(self, client: HttpClient) -> None:
@@ -14,5 +14,5 @@ class LocationsRessource:
 
         :return: list of locations
         """
-        data = self.client.get("/locations", params=kwargs)
+        data = self.client.get(build_path("locations"), params=kwargs)
         return [Location.from_api(location) for location in data]
