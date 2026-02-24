@@ -13,6 +13,9 @@ from .clan_war_standing import ClanWarStanding
 from .clan_war_participant import ClanWarParticipant
 from .clan_war_log import ClanWarLog
 from .clan_current_war import ClanCurrentWar
+from .period_log_entry_clan import PeriodLogEntryClan
+from .period_log_entry import PeriodLogEntry
+from .period_log import PeriodLog
 from .river_race_participant import RiverRaceParticipant
 from .river_race_clan import RiverRaceClan
 from .river_race_standing import RiverRaceStanding
