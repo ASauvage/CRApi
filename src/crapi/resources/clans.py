@@ -69,16 +69,20 @@ class ClansResource:
         data = self.client.get(build_path("clans", tag, "currentwar"))
         return ClanCurrentWar.from_api(data)
 
-    def get_river_race_log(self, tag: str) -> list[RiverRaceLog]:
+    def get_river_race_log(self, tag: str, limit: int | None = None, after: str | None = None, before: str | None = None) -> list[RiverRaceLog]:
         """Retrieve clan's river race log.
         
         :param tag: Tag of the clan.
         :return: List of RiverRaceLog
         """
-        data = self.client.get(build_path("clans", tag, "riverracelog"))
+        data = self.client.get(build_path("clans", tag, "riverracelog"), params=params_format(
+            limit=limit,
+            after=after,
+            before=before
+        ))
         return [RiverRaceLog.from_api(riverracelog) for riverracelog in data]
 
-    def get_current_river_race(self, tag: str) -> RiverRaceLog:
+    def get_current_river_race(self, tag: str) -> CurrentRiverRace:
         """Retrieve information about clan's current river race.
 
         :param tag: Tag of the clan.
