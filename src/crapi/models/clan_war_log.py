@@ -14,7 +14,7 @@ class ClanWarLog:
     @classmethod
     def from_api(cls, data: dict) -> "ClanWarLog":
         return cls(
-            season_id=data["seasonId"],
+            season_id=int(data["seasonId"]),
             participants=[ClanWarParticipant.from_api(participant) for participant in data["participants"]],
             standings=[ClanWarStanding.from_api(standing) for standing in data["standings"]],
             date=datetime.fromisoformat(data["date"]),

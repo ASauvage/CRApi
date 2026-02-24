@@ -9,7 +9,7 @@ class Clan:
     tag: str
     name: str
     description: str
-    badge_id: str
+    badge_id: int
     location: Location
     open_type: Literal["OPEN", "INVITE_ONLY", "CLOSED"]
     required_trophies: int
@@ -25,13 +25,13 @@ class Clan:
             tag=data["tag"],
             name=data["name"],
             description=data["description"],
-            badge_id=data["badgeId"],
+            badge_id=int(data["badgeId"]),
             location=Location.from_api(data["location"]),
             open_type=data["type"],
-            required_trophies=data["requiredTrophies"],
-            members_trophies=data["clanScore"],
-            war_trophies=data["clanWarTrophies"],
-            donations_per_week=data["donationsPerWeek"],
-            members_count=data["members"],
-            members=[ClanMember.from_api(player) for player in data["memberList"]]
+            required_trophies=int(data["requiredTrophies"]),
+            members_trophies=int(data["clanScore"]),
+            war_trophies=int(data["clanWarTrophies"]),
+            donations_per_week=int(data["donationsPerWeek"]),
+            members_count=int(data["members"]),
+            members=[ClanMember.from_api(clanmember) for clanmember in data["memberList"]]
         )

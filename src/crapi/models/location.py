@@ -12,7 +12,7 @@ class Location:
     @classmethod
     def from_api(cls, data: dict) -> "Location":
         return cls(
-            id=data["id"],
+            id=int(data["id"]),
             name=data["name"],
             localized_name=data["localizedName"],
             is_country=data["isCountry"],

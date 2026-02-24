@@ -19,10 +19,10 @@ class ClanWarClan:
         return cls(
             tag=data["tag"],
             name=data["name"],
-            members_trophies=data["clanScore"],
-            crowns=data["crowns"],
-            badge_id=data["badgeId"],
+            members_trophies=int(data["clanScore"]),
+            crowns=int(data["crowns"]),
+            badge_id=int(data["badgeId"]),
             participants=[ClanWarParticipant.from_api(participant) for participant in data["participants"]],
-            battles_played=data["battles_played"],
-            wins=data["wins"]
+            battles_played=int(data["battlesPlayed"]),
+            wins=int(data["wins"])
         ) 

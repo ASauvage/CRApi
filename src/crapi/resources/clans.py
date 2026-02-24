@@ -1,6 +1,6 @@
 from ..http.client import HttpClient
 from ..commons.utils import build_path, params_format
-from ..models import Clan, ClanMember, ClanWarLog, ClanCurrentWar
+from ..models import Clan, ClanMember, ClanWarLog, ClanCurrentWar, RiverRaceLog, CurrentRiverRace
 
 
 class ClansResource:
@@ -69,11 +69,23 @@ class ClansResource:
         data = self.client.get(build_path("clans", tag, "currentwar"))
         return ClanCurrentWar.from_api(data)
 
-    def get_river_race_log(self, tag: str) -> None:
-        pass
+    def get_river_race_log(self, tag: str) -> list[RiverRaceLog]:
+        """Retrieve clan's river race log.
+        
+        :param tag: Tag of the clan.
+        :return: List of RiverRaceLog
+        """
+        data = self.client.get(build_path("clans", tag, "riverracelog"))
+        return [RiverRaceLog.from_api(riverracelog) for riverracelog in data]
 
-    def get_current_river_race(self, tag: str) -> None:
-        pass
+    def get_current_river_race(self, tag: str) -> RiverRaceLog:
+        """Retrieve information about clan's current river race.
+
+        :param tag: Tag of the clan.
+        :return: RiverRaceLog Object
+        """
+        data = self.client.get(build_path("clans", tag, "currentriverrace"))
+        return CurrentRiverRace.from_api(data)
 
     def get_members(self, tag: str, limit: int | None = None, after: str | None = None, before: str | None = None) -> list[ClanMember]:
         """List clan members.

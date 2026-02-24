@@ -11,6 +11,6 @@ class ClanWarStanding:
     @classmethod
     def from_api(cls, data: dict) -> "ClanWarStanding":
         return cls(
-            trophy_change=data["trophyChange"],
+            trophy_change=int(data["trophyChange"]),
             clan=ClanWarClan.from_api(data["clan"])
         )

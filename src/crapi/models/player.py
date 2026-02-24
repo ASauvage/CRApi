@@ -13,6 +13,6 @@ class Player:
         return cls(
             tag=data["tag"],
             name=data["name"],
-            trophies=data["trophies"],
-            exp_level=data["expLevel"]
+            trophies=int(data["trophies"]),
+            exp_level=int(data["expLevel"])
         )

@@ -16,9 +16,9 @@ class ClanWarParticipant:
         return cls(
             tag=data["tag"],
             name=data["name"],
-            cards_earned=data["cardsEarned"],
-            battles_played=data["battlesPlayed"],
-            collection_day_battles_played=data["collectionDayBattlesPlayed"],
-            wins=data["wins"],
-            number_of_battles=data["numberOfBattles"]
+            cards_earned=int(data["cardsEarned"]),
+            battles_played=int(data["battlesPlayed"]),
+            collection_day_battles_played=int(data["collectionDayBattlesPlayed"]),
+            wins=int(data["wins"]),
+            number_of_battles=int(data["numberOfBattles"])
         )

@@ -27,12 +27,12 @@ class ClanMember:
             name=data["name"],
             role=data["role"],
             last_seen=datetime.fromisoformat(data["lastSeen"]),
-            exp_level=data["expLevel"],
-            trophies=data["trophies"],
+            exp_level=int(data["expLevel"]),
+            trophies=int(data["trophies"]),
             arena=Arena.from_api(data["arena"]),
-            clan_rank=data["clanRank"],
-            previous_clan_rank=data["previousClanRank"],
-            donations=data["donations"],
-            donations_received=data["donationsReceived"],
-            clan_chest_points=data["clanChestPoints"]
+            clan_rank=int(data["clanRank"]),
+            previous_clan_rank=int(data["previousClanRank"]),
+            donations=int(data["donations"]),
+            donations_received=int(data["donationsReceived"]),
+            clan_chest_points=int(data["clanChestPoints"])
         )
